@@ -47,7 +47,7 @@ ChatBot::~ChatBot() {
 
 void ChatBot::SetChatLogicHandle(ChatLogic *chatLogic) {
   _chatLogic = chatLogic;
-  _chatLogic->SetChatLogicHandle(this);
+  _chatLogic->SetChatbotHandle(this);
 }
 
 ChatBot::ChatBot(const ChatBot &chatbot) {
@@ -75,7 +75,7 @@ ChatBot::ChatBot(ChatBot &&chatbot) {
 }
 
 ChatBot &ChatBot::operator=(ChatBot &chatbot) {
-  cout << "Copy \n";
+  cout << "Copy Assignment Operator \n";
   if (&chatbot != this) {
     if (chatbot._image != NULL && _image != NULL) {
       delete _image;
@@ -91,7 +91,7 @@ ChatBot &ChatBot::operator=(ChatBot &chatbot) {
 }
 
 ChatBot &ChatBot::operator=(ChatBot &&chatbot) {
-  cout << "Move \n";
+  cout << "Move Assignment Operator \n";
   if (&chatbot != this) {
     if (chatbot._image != NULL) {
       _image = std::exchange(chatbot._image, nullptr);
